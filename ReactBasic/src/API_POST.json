@@ -1,0 +1,63 @@
+import "./App.css";
+import React, { useEffect, useState } from "react";
+function App() {
+  const [data, setData] = useState({
+    title: "",
+    author: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch("http://localhost:8000/posts", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then((result) => {
+      console.log("API Log ", result);
+      result.json().then((resp) => {
+        console.log("API Data", resp);
+      });
+    });
+  };
+
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  return (
+    <>
+      <div>
+        <h1>API</h1>
+        <form onSubmit={handleSubmit}>
+          <label>Title</label>
+          <input
+            type="text"
+            name="title"
+            value={data.title}
+            onChange={handleChange}
+          />
+          <br />
+          <label>Author</label>
+          <input
+            type="text"
+            name="author"
+            value={data.author}
+            onChange={handleChange}
+          />
+          <br />
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </>
+  );
+}
+
+export default App;
+
+// output:
+// API Log  Response {type: 'cors', url: 'http://localhost:8000/posts', redirected: false, status: 201, ok: true, …}
+// App.jsx:21 API Data {title: 'amitab', author: 'bachan', id: 24}
