@@ -269,10 +269,15 @@ function App() {
       title: "Sno",
 
       render: (item, record, index) => {
-        return <span>{index + 1}</span>;
+        const sno = index + 1;
+        return (<span>{sno}</span>), sno;
       },
     },
-
+    {
+      title: "Distribution",
+      dataIndex: "Id",
+      key: "Id",
+    },
     {
       title: "Status",
       dataIndex: "Status",
@@ -282,6 +287,7 @@ function App() {
       title: "ARN",
       dataIndex: "ARN",
       key: "ARN",
+      ...getColumnSearchProps("ARN"),
     },
     {
       title: "DomainName",
@@ -295,6 +301,8 @@ function App() {
       render: (record) => {
         return record.CacheBehaviors.Quantity;
       },
+      sorter: (a, b) =>
+        a.record.CacheBehaviors.Quantity - b.record.CacheBehaviors.Quantity,
     },
   ];
 
