@@ -20,11 +20,11 @@ export default function App() {
     <div>
       <form onSubmit={handleSubmit}>
         <label>name</label>
-        <input type="text" name="name" onChange={handleChange} />
+        <input type="text" name="name" value={form.name} onChange={handleChange} />
         <label>email</label>
-        <input type="email" name="email" onChange={handleChange} />
+        <input type="email" name="email" value={form.email} onChange={handleChange} />
         <label>password</label>
-        <input type="password" name="password" onChange={handleChange} />
+        <input type="password" name="password" value={form.password} onChange={handleChange} />
         <button type="submit">Submit</button>
       </form>
     </div>
