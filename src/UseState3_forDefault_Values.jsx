@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export default function UseState3() {
+export default function File2() {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -15,9 +15,8 @@ export default function UseState3() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // to keep shubham@create.co as default email
 
-  // to keep shubham@create.co as default email 
-  
   useEffect(() => {
     setForm({ ...form, email: "shubham@create.co" });
     console.log(form);
@@ -28,7 +27,7 @@ export default function UseState3() {
       <div>
         <p>{JSON.stringify(form)}</p>
         <form onSubmit={handleSubmit}>
-          <label>name</label>
+          <label>name : </label>
           <input
             type="text"
             name="name"
@@ -36,7 +35,11 @@ export default function UseState3() {
             value={form.name}
             required
           />
-          <label>email</label>
+
+          <br />
+          <br />
+
+          <label>email : </label>
           <input
             type="email"
             name="email"
@@ -44,7 +47,11 @@ export default function UseState3() {
             onChange={handleChange}
             required
           />
-          <label>password</label>
+
+          <br />
+          <br />
+
+          <label>password : </label>
           <input
             type="password"
             name="password"
@@ -52,6 +59,10 @@ export default function UseState3() {
             onChange={handleChange}
             required
           />
+
+          <br />
+          <br />
+
           <button type="submit">submit</button>
         </form>
       </div>
