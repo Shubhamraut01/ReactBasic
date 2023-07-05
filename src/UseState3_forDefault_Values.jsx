@@ -15,6 +15,9 @@ export default function UseState3() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+
+  // to keep shubham@create.co as default email 
+  
   useEffect(() => {
     setForm({ ...form, email: "shubham@create.co" });
     console.log(form);
