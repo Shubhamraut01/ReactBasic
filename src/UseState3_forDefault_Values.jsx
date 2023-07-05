@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export default function File2() {
+export default function App() {
   const [form, setForm] = useState({
     name: "",
     email: "",
